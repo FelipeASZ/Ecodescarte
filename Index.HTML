@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoDescarte 🌱 | Escola Infantil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho / Menu -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">🌱</span>
+            <h1>EcoDescarte</h1>
+        </div>
+        <nav>
+            <a href="#turma">Turmas</a>
+            <a href="#aluno">Alunos</a>
+            <a href="#coleta">Coletas</a>
+            <a href="#historico">Histórico</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- Banner de Boas-Vindas -->
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Pequenos gestos, grandes mudanças! 🌍</h2>
+                <p>Gerencie a coleta de lixo eletrônico da nossa escola e ajude a construir um futuro mais sustentável.</p>
+            </div>
+            <div class="hero-image">♻️</div>
+        </section>
+
+        <!-- Grid Principal -->
+        <div class="grid">
+
+            <!-- Coluna 1: Formulários -->
+            <div class="col-forms">
+                
+                <!-- Form Turma -->
+                <div class="card" id="turma">
+                    <div class="card-header">
+                        <span class="icon">🏫</span>
+                        <h3>Cadastrar Turma</h3>
+                    </div>
+                    <form id="formTurma">
+                        <div class="input-group">
+                            <label>Nome da Turma</label>
+                            <input type="text" id="nomeTurma" required placeholder="Ex: Maternal I">
+                        </div>
+                        <div class="input-group">
+                            <label>Professora Responsável</label>
+                            <input type="text" id="professora" placeholder="Ex: Tia Ana">
+                        </div>
+                        <button type="submit" class="btn-verde">Cadastrar Turma</button>
+                    </form>
+                </div>
+
+                <!-- Form Aluno -->
+                <div class="card" id="aluno">
+                    <div class="card-header">
+                        <span class="icon">🧒</span>
+                        <h3>Cadastrar Aluno</h3>
+                    </div>
+                    <form id="formAluno">
+                        <div class="input-group">
+                            <label>Nome do Aluno</label>
+                            <input type="text" id="nomeAluno" required placeholder="Ex: Lucas">
+                        </div>
+                        <div class="input-group">
+                            <label>Turma</label>
+                            <select id="selectTurma" required></select>
+                        </div>
+                        <button type="submit" class="btn-azul">Cadastrar Aluno</button>
+                    </form>
+                </div>
+
+                <!-- Form Coleta -->
+                <div class="card" id="coleta">
+                    <div class="card-header">
+                        <span class="icon">🔋</span>
+                        <h3>Registrar Coleta</h3>
+                    </div>
+                    <form id="formColeta">
+                        <div class="input-group">
+                            <label>Aluno</label>
+                            <select id="selectAluno" required></select>
+                        </div>
+                        <div class="input-group">
+                            <label>Tipo de Material</label>
+                            <select id="tipoMaterial" required>
+                                <option value="Pilhas">Pilhas</option>
+                                <option value="Baterias">Baterias</option>
+                                <option value="Cabos">Cabos</option>
+                                <option value="Celulares">Celulares</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Quantidade (unidades)</label>
+                            <input type="number" id="quantidade" required min="1" placeholder="Ex: 5">
+                        </div>
+                        <button type="submit" class="btn-amarelo">Registrar Coleta</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Coluna 2: Histórico e Ranking -->
+            <div class="col-dados">
+                
+                <!-- Histórico -->
+                <div class="card card-table" id="historico">
+                    <div class="card-header">
+                        <span class="icon">📋</span>
+                        <h3>Histórico de Coletas</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Turma</th>
+                                    <th>Material</th>
+                                    <th>Qtd.</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaColetas"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Ranking -->
+                <div class="card card-ranking">
+                    <div class="card-header">
+                        <span class="icon">🏆</span>
+                        <h3>Ranking das Turmas</h3>
+                    </div>
+                    <ul id="rankingTurmas" class="ranking-list"></ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Supabase e Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
